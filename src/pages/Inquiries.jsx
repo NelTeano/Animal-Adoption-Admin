@@ -1,9 +1,12 @@
-
+// STYLES
+import '../assets/styles/inquiriesStyle.css'
 
 export default function Inquiries() {
     return (
-        <div>
-            This is Inquiries Page
-        </div>
+        <>
+            <div className="inquiries-container">
+                This is Inquiries Page
+            </div>
+        </>
     )
 }

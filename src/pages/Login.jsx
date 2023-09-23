@@ -1,11 +1,17 @@
 
+// COMPONENTS
+// import Button from 'react-bootstrap/Button';
+
+// STYLES
+import '../assets/styles/loginStyle.css'
+
 
 export default function Login() {
     return (
-        <div>
-            This is Login Page
-
-            
-        </div>
+        <>
+            <div className='login-container'>
+                Login page 
+            </div>
+        </>
     )
 }
