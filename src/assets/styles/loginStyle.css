@@ -1,3 +1,105 @@
+
+
 .login-container{
-    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 732px;
+    height:  940px;
+    flex-shrink: 0;
+    background: #ADA7FF;
+    backdrop-filter: blur(12px);
+}
+
+.login-board-tagline{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-board-tagline h3{
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200%;
+    color: white;
+}
+
+.login-board-tagline p{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200%;
+    color: white;
+}
+
+
+.login-form{
+    display: flex;
+    width: 708px;
+    height:  940px;
+    padding: 278px 123px 278px 122px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+.login-form-box{
+    width: 463px;
+    height: 468px;
+    flex-shrink: 0;
+}
+
+.login-form-box h1{
+    color: #18345E;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; 
+    margin-bottom: 20px;
+}
+
+.login-form-box label{
+    color: #18345E;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.login-form-box input{
+    display: flex;
+    width: 462.896px;
+    height: 52px;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: black solid 1px;
+    background: #F4F2F2;
+    
+}
+
+.login-form-box button{
+    width: 462.002px;
+    height: 50.576px;
+    flex-shrink: 0;
+    background: #ADA7FF;
+    color: white;
+    margin-top: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+    border: none;
+    cursor: pointer;
 }
