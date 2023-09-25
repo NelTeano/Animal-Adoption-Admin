@@ -10,6 +10,8 @@ import Animals from './pages/Animals'
 import Inquiries from './pages/Inquiries'
 import Dashboard from './pages/Dashboard'
 
+
+
 import './App.css'
 
 function App() {
@@ -45,7 +47,7 @@ function App() {
 
   return (
     <>
-    <Routes>
+    <Routes> 
       {routes.map((route, index) => (
         <Route key={index} path={route.pathname} element={<route.element />} />
       ))}
