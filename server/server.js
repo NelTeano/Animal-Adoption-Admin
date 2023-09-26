@@ -22,7 +22,7 @@ const PORT = 5176;
 
 
 app.use(cors({
-    origin: ['http://localhost:5175','http://localhost:5175']  // THE HTTP(ORIGIN) THAT WILL ALLOW TO ACCESS THE ROUTES
+    origin: ['http://localhost:5173','http://localhost:5173']  // THE HTTP(ORIGIN) THAT WILL ALLOW TO ACCESS THE ROUTES
 }));
 
 // ACTIVATE SERVER PORT 
@@ -59,29 +59,3 @@ app.use('/api', AuthenticationRoute);
 
 
 
-
-
-
-// --------------------------------------------------------------------------------------------------PASSPORT SETUP
-
-// import session from 'express-session'
-// import passport from 'passport'
-// import LocalStrategy from 'passport-local'
-
-// // VARIABLES PASSPORT
-// const localStrategy = LocalStrategy.Strategy
-
-
-// // Configure session middleware
-// app.use(session({
-//     secret: 'session_super_secret_string', // Change this to a strong, random secret
-//     resave: false,
-//     saveUninitialized: false,
-// }));
-
-// // Initialize Passport
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-
-// --------------------------------------------------------------------------------------------------PASSPORT SETUP
