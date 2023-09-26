@@ -1,3 +1,6 @@
 .animals-container{
-    background-color:blueviolet
+    display: flex;
+    flex-direction: row;
+    border-top-left-radius: 40px;
+    background-color:blueviolet;
 }
