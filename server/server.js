@@ -37,6 +37,7 @@ app.use(express.static("public"));
 
 
 
+
 // USE ROUTES
 app.use('/api', UserRoute);
 app.use('/api', InquiriesRoute);
