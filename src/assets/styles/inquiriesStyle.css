@@ -4,3 +4,66 @@
     border-top-left-radius: 40px;
     background-color: crimson;
 }
+
+.inquries-table-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 100%;
+}
+
+.inquiries-table-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 800px;
+}
+
+.inquiries-table-body table{
+    height: 500px;
+    width: 700px;
+    text-align: center;
+    text-transform: capitalize;
+    background-color: #FFF;
+    box-shadow:  20px 20px 60px #bebebe,-20px -20px 60px #ffffff;
+}
+
+
+.inquiries-table-body button{
+    background-color: rgb(173, 167, 255);
+    color: white;
+    border: white solid 1px;
+    border-radius: 40px;
+    height: 40px;
+    width: 150px;
+    cursor: pointer;
+}
+
+
+
+.inquiries-table-label{
+    display: flex;
+    background-color:  rgb(173, 167, 255);
+    color: white;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    padding: 20px;
+    width: 700px;
+    justify-content: space-around;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+.inquiries-pagination{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    width: 700px;
+    border: solid white;
+    background-color: rgb(173, 167, 255);
+    box-shadow:  20px 20px 60px #bebebe,-20px -20px 60px #ffffff;
+}

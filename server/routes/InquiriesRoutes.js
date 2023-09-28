@@ -15,4 +15,18 @@ InquriesRoute.get('/inquiries', async (req, res) => {
     }
 })
 
+
+InquriesRoute.get('/inquiries/:id', async (req, res) => {
+
+    const inquiryId = req.params.id;
+
+    try {
+        const inquiriesById = await InquiriesModel.findById({_id: inquiryId});
+        res.send(inquiriesById);
+        console.log("Success get data from ID : ", inquiryId)
+    } catch (error) {
+        res.status(500).json({ message: "Error Getting Inquiries Data" , error });
+    }
+})
+
 export default InquriesRoute;

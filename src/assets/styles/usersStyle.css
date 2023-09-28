@@ -70,7 +70,8 @@
 }
 
 .users-table-body thead th{
-    background: #FFF;
+    background: rgb(173, 167, 255);
+    color: white;
     width: 919px;
     height: 48px;
     stroke-width: 1px;
@@ -82,6 +83,15 @@
     display: flex;
     gap: 30px;
     padding: 10px;
+}
+
+.users-pagination button{
+    background-color: rgb(173, 167, 255);
+    width: 120px;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .users-table button{
@@ -114,19 +124,12 @@
 
 /* FUNCTION BUTTONS */
 .users-table-functions Button{
-    border-radius: 10px;
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    background-color: rgb(173, 167, 255);
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
-.addBTN{
-    background-color: rgb(90, 161, 90);
-}
 
-.deleteBTN{
-    background-color: rgb(161, 90, 90);
-}
-
-.editBTN{
-    background-color: rgb(34, 33, 33);
-    color: white;
-}

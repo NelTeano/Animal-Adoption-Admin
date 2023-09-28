@@ -9,6 +9,7 @@ import Users from './pages/Users'
 import Animals from './pages/Animals'
 import Inquiries from './pages/Inquiries'
 import Dashboard from './pages/Dashboard'
+import MessegePage from './pages/InquiriesMessege'
 
 
 
@@ -34,9 +35,14 @@ function App() {
     element: Inquiries
   },
   {
+    pathname: "/Inquiries/:id",
+    element: MessegePage
+  },
+  {
     pathname: "/Dashboard",
     element: Dashboard
-  },]
+  },
+  ]
 
 
 
