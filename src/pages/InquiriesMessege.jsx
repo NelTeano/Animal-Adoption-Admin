@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+// COMPONENTS 
+import Navbar from '../components/navbar';
+
+// STYLES
+import '../assets/styles/MessegeStyle.css'
+
 export default function InquiriesMessege() {
 
     const [messegeData, setMessegeData] = useState('')
@@ -22,22 +28,40 @@ export default function InquiriesMessege() {
         }
 
         getMessege(); // FETCHING INQURIES DATA
-    }, [messegeData]);
+    }, [getMessegeId]);
 
-    console.log(messegeData._id)
+    console.log(messegeData)
 
-    
+
+
+
     return (
         
         <>
-        {messegeData &&
-            <div>
-                <h1>{messegeData.name}</h1>
-                <h1>{messegeData._id}</h1>
-                <h1>{messegeData.phone}</h1>
-                <h1>{messegeData.messege}</h1>
+            <div className='messege-container'>
+                <Navbar/>
+                <div className='messege-body'>
+                    <div className="navHeader">
+                        <h1>Inquiries Messege</h1>
+                    </div>
+                    {messegeData &&
+                    <div className='messege-content'>
+                        <div className='messege-content-body'>
+                            <div className='messege-content-header'>
+                                <h3>Name : {messegeData.name}</h3>
+                                <h3>Email : {messegeData.email}</h3>
+                                <h3>Phone : {messegeData.phone}</h3>
+                                <h3>Date :</h3>
+                            </div>
+                            <div className='messege-content-info'>
+                                <h3>Messege : </h3>
+                                <textarea value={messegeData.messege} readOnly></textarea>
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>
             </div>
-        }
         </>
     )
 }

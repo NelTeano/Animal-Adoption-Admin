@@ -19,7 +19,7 @@ function App() {
 
   // PAGES ROUTES PATH AND ELEMENT SETTER
   const routes = [{
-    pathname: "/Login",
+    pathname: "/",
     element: Login
   },
   {
