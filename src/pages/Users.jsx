@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
+
+// COMPONENTS
 import Navbar from '../components/navbar';
 import { Button, Image } from 'react-bootstrap';
+import Loading from '../components/loading'
 
 // STYLES
 import '../assets/styles/usersStyle.css';
+
 
 export default function Users() {
     const [usersData, setUsersData] = useState(''); // HANDLE STORE USERS DATA
@@ -94,13 +98,13 @@ export default function Users() {
                         </>
                         ) : (
                             <tr>
-                                <td>User Data not Available</td>
-                                <td>User Data not Available</td>
-                                <td>User Data not Available</td>
-                                <td>User Data not Available</td>
-                                <td>User Data not Available</td>
-                                <td>User Data not Available</td>
-                                <td>User Data not Available</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><Loading/></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         )}
                     </tbody>

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 // COMPONENTS 
 import Navbar from '../components/navbar';
+import Loading from '../components/loading';
+
 
 // STYLES
 import '../assets/styles/MessegeStyle.css'
@@ -44,7 +46,7 @@ export default function InquiriesMessege() {
                     <div className="navHeader">
                         <h1>Inquiries Messege</h1>
                     </div>
-                    {messegeData &&
+                    {messegeData ? (
                     <div className='messege-content'>
                         <div className='messege-content-body'>
                             <div className='messege-content-header'>
@@ -59,6 +61,13 @@ export default function InquiriesMessege() {
                             </div>
                         </div>
                     </div>
+                    ):(
+                        <div className='messege-content'>
+                        <div className='messege-content-body'>
+                            <Loading/>
+                        </div>
+                    </div>
+                    )
                 }
                 </div>
             </div>

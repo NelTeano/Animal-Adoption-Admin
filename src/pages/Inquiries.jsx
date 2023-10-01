@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 
 // COMPONENTS 
 import Navbar from '../components/navbar'
+import Loading from '../components/loading'
 
 // STYLES
 import '../assets/styles/inquiriesStyle.css'
@@ -84,7 +85,7 @@ export default function Inquiries() {
                                 </>
                                 ) : (
                                     <tr>
-                                        <td>Inquiries Data not Available</td>
+                                        <td><Loading/></td>
                                     </tr>
                                 )}
                             </tbody>
