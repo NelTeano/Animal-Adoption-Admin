@@ -4,3 +4,62 @@
     border-top-left-radius: 40px;
     background-color: antiquewhite;
 }
+
+
+.dashboard-table-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 100%;
+}
+
+
+.dashboard-table-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 30px;
+    height: 200px;
+    width: 100%;
+}
+
+.dashboard-totals{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 400px;
+}
+
+
+.dashboard-statistics{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 100px;
+    height: 500px;
+    width: 100%;
+}
+
+.dashboardLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(173, 167, 255);
+    border-radius: 40px;
+    width: 60%;
+    border: solid rgba(0,0,0,.125) 1px ;
+    box-shadow:  20px 20px 60px #cfcece,-20px -20px 60px #ffffff;
+}
+
+.pieChart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 420px;
+    width: 510px;
+    border: solid rgba(0,0,0,.125) 1px ;
+}

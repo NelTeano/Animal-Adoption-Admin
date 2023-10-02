@@ -91,7 +91,7 @@ export default function Users() {
                                     </td>
                                     <td>{user.address}</td>
                                     <td>{user.net_income}</td>
-                                    <td>{String(user.isQualified)}</td>
+                                    <td>{user.isQualified ? <p>✓</p> : <p>✕</p>}</td>
                                     <td>{user.date}</td>
                                 </tr>
                             ))}
