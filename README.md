@@ -7,8 +7,8 @@
 <ul>
   <li>Login</li>
   <li>Dashboard</li>
-  <li>Users Management</li>
-  <li>Animals Data Management</li>
+  <li>Users Management (CRUD)</li>
+  <li>Animals Data Management(CRUD)</li>
   <li>Inquiries</li>
   <li>See Messeges</li>
 </ul>
