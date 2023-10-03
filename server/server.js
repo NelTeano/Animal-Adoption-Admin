@@ -5,9 +5,10 @@ import cors from 'cors';
 
 
 // ROUTES 
-import UserRoute from './routes/UserRoutes.js'
+import UserRoute from './routes/UserRoutes.js';
 import InquiriesRoute from './routes/InquiriesRoutes.js';
-import AuthenticationRoute from './routes/Authenticate.js'
+import AuthenticationRoute from './routes/Authenticate.js';
+import AnimalsRoute from "./routes/AnimalRoutes.js";
 
 // DATABASE CONNECTION
 import { initDatabase } from './database.js'
@@ -41,7 +42,9 @@ app.use(express.static("public"));
 // USE ROUTES
 app.use('/api', UserRoute);
 app.use('/api', InquiriesRoute);
+app.use('/api', AnimalsRoute)
 app.use('/api', AuthenticationRoute);
+
 
 
 

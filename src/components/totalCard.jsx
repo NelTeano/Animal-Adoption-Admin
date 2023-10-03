@@ -63,7 +63,7 @@ function totalCard({cardIcon, totalValue, cardLabel}) {
 
 totalCard.propTypes = {
   cardIcon : PropTypes.string.isRequired,
-  totalValue: PropTypes.string.isRequired,
+  totalValue: PropTypes.any.isRequired,
   cardLabel: PropTypes.string.isRequired,
 
 }

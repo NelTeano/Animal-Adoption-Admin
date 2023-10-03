@@ -14,6 +14,6 @@ UserRoute.get('/users', async (req, res) => {
     }catch(err){
         res.status(500).json({ message: "Error Getting Users Data" , err });
     }
-})
+});
 
 export default UserRoute;
