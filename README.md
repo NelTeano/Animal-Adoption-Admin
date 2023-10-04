@@ -13,6 +13,15 @@
   <li>See Messeges</li>
 </ul>
 
+# Dashboard UI
+![dashboard](https://github.com/NelTeano/Animal-Adoption-Admin/assets/108077205/f214a6d1-3b38-4715-9233-1b1ce9b0ed4d)
+
+
+# Inquiries UI
+
+![inquiries](https://github.com/NelTeano/Animal-Adoption-Admin/assets/108077205/025dfaa6-218f-4778-9476-21e16d7d6835)
+
+
 # HOW TO SETUP THE PROJECT
 
 ## Requirements
