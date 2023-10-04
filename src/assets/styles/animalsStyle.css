@@ -4,3 +4,113 @@
     border-top-left-radius: 40px;
     background-color:blueviolet;
 }
+
+.animals-table-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 100%;
+}
+
+.animals-table{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    width: 1176px;
+    height: 600px;
+}
+
+
+.animals-table-functions{
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 10px;
+}
+
+.animals-table-body{
+    background-color: white;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
+    height: 100%;
+}
+
+
+
+.animals-table-body table{
+    height: 100%;
+}
+
+.animals-table-body td{
+    padding: 10px;
+    text-align: center;
+}
+
+.animals-table-body thead th{
+    background: rgb(173, 167, 255);
+    color: white;
+    width: 919px;
+    height: 48px;
+    stroke-width: 1px;
+    stroke: rgba(58, 53, 65, 0.12);
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+
+.animals-table-body p{
+    font-size: 30px;
+}
+
+.animals-pagination{
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+}
+
+.animals-pagination button{
+    background-color: rgb(173, 167, 255);
+    width: 120px;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.animals-table button{
+    display: flex;
+    padding: 7px 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.searchBar{
+    width: 170px;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid rgba(58, 53, 65, 0.29);
+    color: rgba(58, 53, 65, 0.38);
+    padding: 17px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 240% */
+    letter-spacing: 0.15px;
+}
+
+.userIcon{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+/* FUNCTION BUTTONS */
+.animals-table-functions Button{
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    background-color: rgb(173, 167, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
