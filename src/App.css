@@ -8,6 +8,10 @@
   font-family: 'Dosis', sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

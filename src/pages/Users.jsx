@@ -4,13 +4,22 @@ import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
 import { Button, Image } from 'react-bootstrap';
 import Loading from '../components/loading'
+import Modal from '../components/modal'
 
 // STYLES
 import '../assets/styles/usersStyle.css';
 
-
 export default function Users() {
+
     const [usersData, setUsersData] = useState(''); // HANDLE STORE USERS DATA
+
+    const [modal, setmodal] = useState(false); // TO BE ABLE CLOSE AND OPEN THE MODAL
+
+    // HANDLE WHAT MODAL WILL SHOW IN WINDOW
+    const [editModal, setEditModal] = useState(false);
+    const [addModal, setAddModal] = useState(false);
+    const [deleteModal, setDeleteModal] = useState(false);
+
     const [currentPage, setCurrentPage] = useState(1); // CURRENT PAGE INDEX HANDLER
     const itemsPerPage = 3; // SET THE MAXIMUM ITEMS CAN BE IN A PAGE
 
@@ -39,6 +48,8 @@ export default function Users() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = usersData.slice(indexOfFirstItem, indexOfLastItem);
 
+    // PAGE FUNCTIONS SECTION
+
     // HANDLE PAGE CHANGING
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
@@ -46,6 +57,35 @@ export default function Users() {
 
     const handlePrevPage = () => {
         setCurrentPage(currentPage - 1);
+    };
+
+    const openModal = () => { // OPEN  MODAL
+        setmodal(true);
+    };
+
+    const closeModal = () => { // CLOSE  MODAL
+        setmodal(false);
+    };
+
+    const openAddModal = () =>{ // OPEN ADD ANIMAL MODAL
+        setEditModal(false);
+        setDeleteModal(false);
+        setAddModal(true);
+        openModal();
+    };
+
+    const openDeleteModal = () =>{  // OPEN DELETE ANIMAL MODAL
+        setAddModal(false);
+        setEditModal(false);
+        setDeleteModal(true);
+        openModal();
+    };
+
+    const openEditModal = () =>{    // OPEN EDIT ANIMAL MODAL
+        setAddModal(false);
+        setEditModal(false);
+        setDeleteModal(true);
+        openModal();
     };
 
 
@@ -58,13 +98,51 @@ export default function Users() {
                 <h1>Users</h1>
                 </div>
                 <div className="users-table">
+                    <Modal isOpen={modal} closeModal={closeModal}>
+                        {
+                        (() => {
+                            if (addModal)
+                                return (
+                                    <div>
+                                        <h2>This is AddModal</h2>
+                                    </div>
+                                )
+                            if (deleteModal)
+                                return (
+                                    <div>
+                                        <h2>This is DeleteModal</h2>
+                                    </div>
+                                )
+                            else (editModal)
+                                return (
+                                    <div>
+                                        <h2>This is EditModal</h2>
+                                    </div>
+                                )
+                        })()
+                        }
+                        </Modal>
                 <div className="users-table-functions">
                     <form>
                     <input type="text" placeholder="Search" className="searchBar" />
                     </form>
-                    <Button className='addBTN' >ADD USER</Button>
-                    <Button className='deleteBTN'>DELETE USER</Button>
-                    <Button className='editBTN'>EDIT USER</Button>
+                    <Button 
+                        className='addBTN' 
+                        onClick={openAddModal}>
+                        ADD USER 
+                    </Button>
+
+                    <Button 
+                        className='deleteBTN' 
+                        onClick={openDeleteModal}>
+                        DELETE USER
+                    </Button>
+
+                    <Button 
+                        className='editBTN' 
+                        onClick={openEditModal}>
+                        EDIT USER
+                    </Button>
                 </div>
                 <div className="users-table-body">
                     <table>

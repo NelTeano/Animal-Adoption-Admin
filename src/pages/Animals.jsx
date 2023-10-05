@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // COMPONENTS 
-import Navbar from '../components/navbar'
+import Navbar from '../components/navbar';
 import { Button, Image } from 'react-bootstrap';
-import Loading from '../components/loading'
+import Loading from '../components/loading';
+import Modal from '../components/modal'
+
 
 // STYLES
 import '../assets/styles/animalsStyle.css'
@@ -11,7 +14,15 @@ import '../assets/styles/animalsStyle.css'
 
 export default function Animals() {
 
-    const [animalsData, setAnimalsData] = useState('');
+    const [animalsData, setAnimalsData] = useState(''); // HANDLE ANIMALS DATA
+
+    const [modal, setmodal] = useState(false); // TO BE ABLE CLOSE AND OPEN THE MODAL
+    
+    // HANDLE WHAT MODAL WILL SHOW IN WINDOW
+    const [editModal, setEditModal] = useState(false);
+    const [addModal, setAddModal] = useState(false);
+    const [deleteModal, setDeleteModal] = useState(false);
+
     const [currentPage, setCurrentPage] = useState(1); // CURRENT PAGE INDEX HANDLER
     const itemsPerPage = 3; // SET THE MAXIMUM ITEMS CAN BE IN A PAGE
     
@@ -41,6 +52,7 @@ export default function Animals() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = animalsData.slice(indexOfFirstItem, indexOfLastItem);
 
+    // PAGE FUNCTIONS SECTION
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
     };
@@ -48,6 +60,38 @@ export default function Animals() {
     const handlePrevPage = () => {
         setCurrentPage(currentPage - 1);
     };
+
+    const openModal = () => { // OPEN  MODAL
+        setmodal(true);
+    };
+
+    const closeModal = () => { // CLOSE  MODAL
+        setmodal(false);
+    };
+
+    
+    const openAddModal = () =>{ // OPEN ADD ANIMAL MODAL
+        setEditModal(false);
+        setDeleteModal(false);
+        setAddModal(true);
+        openModal();
+    };
+
+    const openDeleteModal = () =>{  // OPEN DELETE ANIMAL MODAL
+        setAddModal(false);
+        setEditModal(false);
+        setDeleteModal(true);
+        openModal();
+    };
+
+    const openEditModal = () =>{    // OPEN EDIT ANIMAL MODAL
+        setAddModal(false);
+        setEditModal(false);
+        setDeleteModal(true);
+        openModal();
+    };
+
+
 
     // ANIMAL PICTURE STYLE
     const animalsPageStyles = {
@@ -63,6 +107,7 @@ export default function Animals() {
             border: 'solid 1px rgb(173, 167, 255)',
             borderRadius: '10px',
             padding: '10px',
+            cursor: 'pointer'
             
         }
     }
@@ -76,13 +121,51 @@ export default function Animals() {
                     <h1>Animals</h1>
                 </div>
                 <div className="animals-table">
+                    <Modal isOpen={modal} closeModal={closeModal}>
+                    {
+                    (() => {
+                        if (addModal)
+                            return (
+                                <div>
+                                    <h2>This is AddModal</h2>
+                                </div>
+                            )
+                        if (deleteModal)
+                            return (
+                                <div>
+                                    <h2>This is DeleteModal</h2>
+                                </div>
+                            )
+                        else (editModal)
+                            return (
+                                <div>
+                                    <h2>This is EditModal</h2>
+                                </div>
+                            )
+                    })()
+                    }
+                    </Modal>
                 <div className="animals-table-functions">
                     <form>
                     <input type="text" placeholder="Search" className="searchBar" />
                     </form>
-                    <Button className='addBTN' >ADD USER</Button>
-                    <Button className='deleteBTN'>DELETE USER</Button>
-                    <Button className='editBTN'>EDIT USER</Button>
+                    <Button 
+                        className='addBTN' 
+                        onClick={openAddModal}>
+                        ADD USER
+                    </Button>
+
+                    <Button 
+                        className='deleteBTN' 
+                        onClick={openDeleteModal}>
+                        DELETE USER
+                    </Button>
+
+                    <Button 
+                        className='editBTN' 
+                        onClick={openEditModal}>
+                        EDIT USER
+                    </Button>
                 </div>
                 <div className="animals-table-body">
                     <table>
@@ -104,7 +187,11 @@ export default function Animals() {
                                     <td>{animal.name}</td>
                                     <td>{animal.animal_type}</td>
                                     <td>{animal.isAdopted ? <p>✓</p> : <p>✕</p>}</td>
-                                    <td><Button style={animalsPageStyles.detailsButton}>See Animal</Button></td>
+                                    <td>
+                                        <Link to={`/animals/${animal._id}`}>
+                                            <Button style={animalsPageStyles.detailsButton}>See Animal</Button>
+                                        </Link>
+                                    </td>
                                 </tr>
                             ))}
                         </>

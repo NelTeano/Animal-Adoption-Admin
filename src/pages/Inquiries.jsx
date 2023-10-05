@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 // COMPONENTS 
@@ -8,7 +9,7 @@ import Loading from '../components/loading'
 
 // STYLES
 import '../assets/styles/inquiriesStyle.css'
-import { Link } from 'react-router-dom';
+
 
 export default function Inquiries() {
 

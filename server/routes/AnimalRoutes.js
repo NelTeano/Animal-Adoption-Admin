@@ -14,9 +14,25 @@ AnimalRoutes.get("/animals" , async (req, res)=>{
         res.send(getAllAnimals);
         console.log("Success sending the Animals Data");
     } catch (error) {
-        res.status(500).json({ message: "Error Getting Account Data" , error });
+        res.status(500).json({ message: "Error Getting Animals Data" , error });
     }
 });
+
+AnimalRoutes.get("/animals/:id", async (req, res) =>{
+
+    try {
+        const animalId = req.params.id;
+        const getAnimalDetails = await AnimalModel.findById(animalId);
+        if(getAnimalDetails == ''){
+            console.log("Cant Find Animal : ", animalId);
+        }else{
+            res.send(getAnimalDetails);
+            console.log("Success sending Animal ID : ", animalId)
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error Getting Animals Data" , error });
+    }
+})
 
 
 
