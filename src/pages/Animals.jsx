@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 // COMPONENTS 
 import Navbar from '../components/navbar';
@@ -112,6 +112,14 @@ export default function Animals() {
         }
     }
 
+    const AnimalTypes = [
+        'Dog',
+        'Cats',
+        'Reptiles',
+        'Birds',
+        'Exotic Animals',
+    ];
+
 
     return (
         <div className="animals-container">
@@ -122,12 +130,45 @@ export default function Animals() {
                 </div>
                 <div className="animals-table">
                     <Modal isOpen={modal} closeModal={closeModal}>
+                        <div className='modalForm'>
                     {
                     (() => {
                         if (addModal)
                             return (
                                 <div>
-                                    <h2>This is AddModal</h2>
+                                    <h2>ADD ANIMAL</h2><br/>
+                                    <form>
+                                        <div>
+                                            <label htmlFor="">Name:</label>
+                                            <input />
+                                            <label htmlFor="">Breed:</label>
+                                            <input />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Location:</label>
+                                            <input />
+                                            <label htmlFor="">Owner</label>
+                                            <input />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Animal Picture : </label>
+                                            <input type='file' />
+                                            <select 
+                                                name="net_income"
+                                                width={'300px'}
+                                                required 
+                                                >
+                                                <option value="">Select Animal Type</option>
+                                                {AnimalTypes.map((range) => (
+                                                    <option key={range} value={range}>
+                                                        {range}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        
+                                    </form>
+                                    <Button>Submit</Button>
                                 </div>
                             )
                         if (deleteModal)
@@ -144,7 +185,7 @@ export default function Animals() {
                             )
                     })()
                     }
-                    </Modal>
+                    </div></Modal>
                 <div className="animals-table-functions">
                     <form>
                     <input type="text" placeholder="Search" className="searchBar" />

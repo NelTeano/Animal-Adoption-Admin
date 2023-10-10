@@ -16,14 +16,14 @@ export default function Modal({ isOpen, closeModal, children }) {
     };
     
     const modalStyle = {
-        backgroundColor: "white",
+        backgroundColor: "rgb(173, 167, 255)",
         padding: "80px",
         borderRadius: "5px",
         boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
         position: "relative",
         zIndex: 1001,
         width: "80%",
-        maxWidth: "500px",
+        maxWidth: "800px",
         textAlign: "center",
     };
     
