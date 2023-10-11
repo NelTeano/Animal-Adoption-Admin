@@ -83,8 +83,8 @@ export default function Users() {
 
     const openEditModal = () =>{    // OPEN EDIT ANIMAL MODAL
         setAddModal(false);
-        setEditModal(false);
-        setDeleteModal(true);
+        setEditModal(true);
+        setDeleteModal(false);
         openModal();
     };
 

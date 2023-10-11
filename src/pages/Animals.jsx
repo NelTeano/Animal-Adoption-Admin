@@ -86,8 +86,8 @@ export default function Animals() {
 
     const openEditModal = () =>{    // OPEN EDIT ANIMAL MODAL
         setAddModal(false);
-        setEditModal(false);
-        setDeleteModal(true);
+        setEditModal(true);
+        setDeleteModal(false);
         openModal();
     };
 
@@ -168,19 +168,66 @@ export default function Animals() {
                                         </div>
                                         
                                     </form>
-                                    <Button>Submit</Button>
+                                    <Button>ADD</Button>
                                 </div>
                             )
                         if (deleteModal)
                             return (
                                 <div>
-                                    <h2>This is DeleteModal</h2>
+                                    <h2>REMOVE ANIMAL</h2><br/>
+                                    <form>
+                                        <div>
+                                            <label htmlFor="">Name :</label>
+                                            <input />
+                                            <label htmlFor="">Owner :</label>
+                                            <input />
+                                        </div>                           
+                                    </form>
+                                    <Button>DELETE</Button>
                                 </div>
                             )
                         else (editModal)
                             return (
                                 <div>
-                                    <h2>This is EditModal</h2>
+                                    <h2>EDIT ANIMAL</h2><br/>
+                                    <form>
+                                        <div>
+                                            <label htmlFor="">Name:</label>
+                                            <input />
+                                            <label htmlFor="">Breed:</label>
+                                            <input />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Location:</label>
+                                            <input />
+                                            <label htmlFor="">Owner</label>
+                                            <input />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Animal Picture : </label>
+                                            <input type='file' />
+                                            <select 
+                                                name="net_income"
+                                                width={'300px'}
+                                                required 
+                                                >
+                                                <option value="">Select Animal Type</option>
+                                                {AnimalTypes.map((range) => (
+                                                    <option key={range} value={range}>
+                                                        {range}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>   
+                                        <div>
+                                            <h2>If the Animal Adopted :</h2><br/>
+                                            <label htmlFor="">isAdopted ?:</label>
+                                            <input style={{height: '30px', width: '30px'}} type='checkbox'/>
+                                            <label htmlFor="">New Owner :</label>
+                                            <input />
+                                        </div>               
+                                    </form>
+                                    <Button>Save Changes</Button>
                                 </div>
                             )
                     })()
@@ -193,19 +240,19 @@ export default function Animals() {
                     <Button 
                         className='addBTN' 
                         onClick={openAddModal}>
-                        ADD USER
+                        ADD ANIMAL
                     </Button>
 
                     <Button 
                         className='deleteBTN' 
                         onClick={openDeleteModal}>
-                        DELETE USER
+                        DELETE ANIMAL
                     </Button>
 
                     <Button 
                         className='editBTN' 
                         onClick={openEditModal}>
-                        EDIT USER
+                        EDIT ANIMAL
                     </Button>
                 </div>
                 <div className="animals-table-body">
