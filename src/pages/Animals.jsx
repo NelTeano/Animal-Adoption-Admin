@@ -23,6 +23,9 @@ export default function Animals() {
     const [addModal, setAddModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
 
+    const [editAnimal, setEditAnimal] = useState(''); // GET THE NAME OF THE ANIMAL YOU WANT TO EDIT
+    const [alreadychoose, setAlreadyChoose] = useState(false); // SHOW THE FORM IF THERES USERNAME VALUE SUBMITTED
+
     const [currentPage, setCurrentPage] = useState(1); // CURRENT PAGE INDEX HANDLER
     const itemsPerPage = 3; // SET THE MAXIMUM ITEMS CAN BE IN A PAGE
     
@@ -67,6 +70,7 @@ export default function Animals() {
 
     const closeModal = () => { // CLOSE  MODAL
         setmodal(false);
+        resetEditValues();
     };
 
     
@@ -91,6 +95,15 @@ export default function Animals() {
         openModal();
     };
 
+    const showEditForm = () => {
+        setAlreadyChoose(true); // SHOW THE EDIT USER FORM AFTER SUBMIT THE NAME
+    }
+
+    const resetEditValues = () => { // HIDE THE MODAL AND RESET THE USERNAME TO ABLE SET ANOTHER AGAIN
+        setAlreadyChoose(false);
+        setmodal(false);
+        setEditAnimal('');
+    }
 
 
     // ANIMAL PICTURE STYLE
@@ -154,7 +167,7 @@ export default function Animals() {
                                             <label htmlFor="">Animal Picture : </label>
                                             <input type='file' />
                                             <select 
-                                                name="net_income"
+                                                name="animal_type"
                                                 width={'300px'}
                                                 required 
                                                 >
@@ -190,44 +203,58 @@ export default function Animals() {
                             return (
                                 <div>
                                     <h2>EDIT ANIMAL</h2><br/>
-                                    <form>
-                                        <div>
-                                            <label htmlFor="">Name:</label>
-                                            <input />
-                                            <label htmlFor="">Breed:</label>
-                                            <input />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="">Location:</label>
-                                            <input />
-                                            <label htmlFor="">Owner</label>
-                                            <input />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="">Animal Picture : </label>
-                                            <input type='file' />
-                                            <select 
-                                                name="net_income"
-                                                width={'300px'}
-                                                required 
-                                                >
-                                                <option value="">Select Animal Type</option>
-                                                {AnimalTypes.map((range) => (
-                                                    <option key={range} value={range}>
-                                                        {range}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </div>   
-                                        <div>
-                                            <h2>If the Animal Adopted :</h2><br/>
-                                            <label htmlFor="">isAdopted ?:</label>
-                                            <input style={{height: '30px', width: '30px'}} type='checkbox'/>
-                                            <label htmlFor="">New Owner :</label>
-                                            <input />
-                                        </div>               
-                                    </form>
-                                    <Button>Save Changes</Button>
+                                    {alreadychoose ? (
+                                        <>
+                                            <form>
+                                                <div>
+                                                    <label htmlFor="">Name:</label>
+                                                    <input />
+                                                    <label htmlFor="">Breed:</label>
+                                                    <input />
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="">Location:</label>
+                                                    <input />
+                                                    <label htmlFor="">Owner</label>
+                                                    <input />
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="">Animal Picture : </label>
+                                                    <input type='file' />
+                                                    <select 
+                                                        name="net_income"
+                                                        width={'300px'}
+                                                        required 
+                                                        >
+                                                        <option value="">Select Animal Type</option>
+                                                        {AnimalTypes.map((range) => (
+                                                            <option key={range} value={range}>
+                                                                {range}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>   
+                                                <div>
+                                                    <h2>Set Animal to Adopted :</h2><br/>
+                                                    <label htmlFor="">Adopted ?:</label>
+                                                    <input style={{height: '30px', width: '30px'}} type='checkbox'/>
+                                                    <label htmlFor="">New Owner :</label>
+                                                    <input />
+                                                </div>               
+                                            </form>
+                                            <Button onClick={resetEditValues}>Save Changes</Button>
+                                        </>
+                                ):(
+                                <>
+                                    <label htmlFor="">Name of the Animal you want to edit :</label>
+                                    <input 
+                                        placeholder='Animal Name'
+                                        value={editAnimal}
+                                        onChange={(e) => setEditAnimal(e.target.value)}
+                                    ></input>
+                                    <Button onClick={showEditForm}>PROCEED</Button>
+                                </>
+                                )}
                                 </div>
                             )
                     })()

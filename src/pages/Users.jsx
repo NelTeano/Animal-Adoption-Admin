@@ -15,10 +15,16 @@ export default function Users() {
 
     const [modal, setmodal] = useState(false); // TO BE ABLE CLOSE AND OPEN THE MODAL
 
+
     // HANDLE WHAT MODAL WILL SHOW IN WINDOW
     const [editModal, setEditModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
+
+
+    const [editUser, setEditUser] = useState(''); // GET THE NAME OF THE USER YOU WANT TO EDIT
+    const [alreadychoose, setAlreadyChoose] = useState(false); // SHOW THE FORM IF THERES USERNAME VALUE SUBMITTED
+
 
     const [currentPage, setCurrentPage] = useState(1); // CURRENT PAGE INDEX HANDLER
     const itemsPerPage = 3; // SET THE MAXIMUM ITEMS CAN BE IN A PAGE
@@ -65,6 +71,7 @@ export default function Users() {
 
     const closeModal = () => { // CLOSE  MODAL
         setmodal(false);
+        resetEditValues();
     };
 
     const openAddModal = () =>{ // OPEN ADD ANIMAL MODAL
@@ -88,6 +95,24 @@ export default function Users() {
         openModal();
     };
 
+    const showEditForm = () => {
+        setAlreadyChoose(true); // SHOW THE EDIT USER FORM AFTER SUBMIT THE NAME
+    }
+
+    const resetEditValues = () => { // HIDE THE MODAL AND RESET THE USERNAME TO ABLE SET ANOTHER AGAIN
+        setAlreadyChoose(false);
+        setmodal(false);
+        setEditUser('');
+    }
+
+
+    const netIncomeRanges = [
+        'Less than ₱25,000',
+        '₱25,000 - ₱50,000',
+        '₱50,000 - ₱75,000',
+        '₱75,000 - ₱100,000',
+        'More than ₱100,000',
+    ];
 
     return (
         <>
@@ -99,28 +124,117 @@ export default function Users() {
                 </div>
                 <div className="users-table">
                     <Modal isOpen={modal} closeModal={closeModal}>
+                    <div className='modalForm'>
                         {
                         (() => {
                             if (addModal)
                                 return (
                                     <div>
-                                        <h2>This is AddModal</h2>
-                                    </div>
+                                    <h2>ADD USER</h2><br/>
+                                    <form>
+                                        <div>
+                                            <label htmlFor="">Name :</label>
+                                            <input />
+                                            <label htmlFor="">Email:</label>
+                                            <input />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Qualified :</label>
+                                            <input style={{height: '30px', width: '30px'}} type='checkbox'/>
+                                            <label htmlFor="">Address :</label>
+                                            <input />
+                                        </div> 
+                                        <div>
+                                            <label htmlFor="">User Picture : </label>
+                                            <input type='file' />
+                                            <select 
+                                                name="net_income"
+                                                width={'300px'}
+                                                required 
+                                                >
+                                                <option value="">Net Income</option>
+                                                {netIncomeRanges.map((range) => (
+                                                    <option key={range} value={range}>
+                                                        {range}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>  
+                                    </form>
+                                    <Button>ADD</Button>
+                                </div>
                                 )
                             if (deleteModal)
                                 return (
                                     <div>
-                                        <h2>This is DeleteModal</h2>
-                                    </div>
+                                    <h2>REMOVE USER</h2><br/>
+                                    <form>
+                                        <div>
+                                            <label htmlFor="">Name :</label>
+                                            <input />
+                                            <label htmlFor="">Email :</label>
+                                            <input />
+                                        </div>                           
+                                    </form>
+                                    <Button>DELETE</Button>
+                                </div>
                                 )
                             else (editModal)
                                 return (
-                                    <div>
-                                        <h2>This is EditModal</h2>
-                                    </div>
+                                <div>
+                                    
+                                    <h2>EDIT USER</h2><br/>
+                                    {alreadychoose ? (
+                                        <>
+                                    <form>
+                                            <div>
+                                                <label htmlFor="">Name :</label>
+                                                <input />
+                                                <label htmlFor="">Email:</label>
+                                                <input />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="">Qualified :</label>
+                                                <input style={{height: '30px', width: '30px'}} type='checkbox'/>
+                                                <label htmlFor="">Address :</label>
+                                                <input />
+                                            </div> 
+                                            <div>
+                                                <label htmlFor="">User Picture : </label>
+                                                <input type='file' />
+                                                <select 
+                                                    name="net_income"
+                                                    width={'300px'}
+                                                    required 
+                                                    >
+                                                    <option value="">Net Income</option>
+                                                    {netIncomeRanges.map((range) => (
+                                                        <option key={range} value={range}>
+                                                            {range}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </div>  
+                                        </form>
+                                        <Button onClick={resetEditValues}>Save Changes</Button>
+                                    </>
+                                    ) : (
+                                        <>
+                                            <label htmlFor="">Name of the User you want to edit :</label>
+                                            <input 
+                                                placeholder='User Name'
+                                                value={editUser}
+                                                onChange={(e) => setEditUser(e.target.value)}
+                                            ></input>
+                                            <Button onClick={showEditForm}>PROCEED</Button>
+                                        </>
+                                    )
+                                    }
+                                </div>
                                 )
                         })()
                         }
+                        </div>
                         </Modal>
                 <div className="users-table-functions">
                     <form>
