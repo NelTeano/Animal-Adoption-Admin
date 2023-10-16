@@ -139,14 +139,8 @@ export default function Users() {
                                             <input />
                                         </div>
                                         <div>
-                                            <label htmlFor="">Qualified :</label>
-                                            <input style={{height: '30px', width: '30px'}} type='checkbox'/>
                                             <label htmlFor="">Address :</label>
                                             <input />
-                                        </div> 
-                                        <div>
-                                            <label htmlFor="">User Picture : </label>
-                                            <input type='file' />
                                             <select 
                                                 name="net_income"
                                                 width={'300px'}
@@ -159,6 +153,10 @@ export default function Users() {
                                                     </option>
                                                 ))}
                                             </select>
+                                        </div> 
+                                        <div>
+                                            <label htmlFor="">User Picture : </label>
+                                            <input type='file' />
                                         </div>  
                                     </form>
                                     <Button>ADD</Button>
