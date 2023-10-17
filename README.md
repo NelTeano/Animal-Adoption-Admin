@@ -20,6 +20,18 @@
 # Inquiries UI
 
 ![inquiries](https://github.com/NelTeano/Animal-Adoption-Admin/assets/108077205/025dfaa6-218f-4778-9476-21e16d7d6835)
+![inquriesmessege](https://github.com/NelTeano/Animal-Adoption-Admin/assets/108077205/47858e0a-a18f-4a9c-8da4-791060aa1d46)
+
+
+# Users UI
+
+![users](https://github.com/NelTeano/Animal-Adoption-Admin/assets/108077205/4c0db60e-6fbe-4804-b3f4-189e03b5d9fb)
+
+
+# Animals UI
+
+![animalsAdmin](https://github.com/NelTeano/Animal-Adoption-Admin/assets/108077205/52f72fb9-e9b5-4a43-9403-eeff252b59e9)
+
 
 
 # HOW TO SETUP THE PROJECT
