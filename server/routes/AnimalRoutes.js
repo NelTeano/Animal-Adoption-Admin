@@ -35,6 +35,45 @@ AnimalRoutes.get("/animals/:id", async (req, res) =>{
 })
 
 
+AnimalRoutes.post('/animals', async (req, res)=>{
+
+    const NewAnimal = new AnimalModel({
+        name: req.body.AnimalName,
+        breed: req.body.AnimalBreed,
+        age: req.body.AnimalAge,
+        location: req.body.AnimalLocation,
+        last_owner: req.body.AnimalOwner,
+        isAdopted : false,
+        new_owner: "",
+        animal_type: req.body.AnimalType,
+        animal_image: req.body.AnimalImage,
+    });
+
+    try {
+        
+        const createAnimal = await NewAnimal.save();
+        res.send(createAnimal);
+        console.log("Successfully Create a Animal");
+
+    } catch (error) {
+        res.status(500).json({ message: "Create User Request Failed" , error });
+    }
+
+
+});
+
+
+// AnimalRoutes.delete('', async (req, res)=>{
+    
+// });
+
+
+// AnimalRoutes.put('', async (req, res)=>{
+    
+// });
+
+
+
 
 
 export default AnimalRoutes;

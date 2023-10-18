@@ -21,12 +21,12 @@ UserRoute.post('/users', async (req, res) => {
 
 
     const NewUser = new UserModel({
-        name: req.body.createName,
-        email: req.body.createEmail,
-        picture: req.body.createPicture,
-        address: req.body.createAddress,
+        name: req.body.UserName,
+        email: req.body.UserEmail,
+        picture: req.body.UserPicture,
+        address: req.body.UserAddress,
         isQualified: true,
-        net_income: req.body.createIncome,
+        net_income: req.body.UserIncome,
     });
 
     try {
