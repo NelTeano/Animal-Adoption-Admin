@@ -18,6 +18,7 @@ AnimalRoutes.get("/animals" , async (req, res)=>{
     }
 });
 
+// GET ONE ANIMAL DATA BY ID
 AnimalRoutes.get("/animals/:id", async (req, res) =>{
 
     try {
@@ -34,7 +35,7 @@ AnimalRoutes.get("/animals/:id", async (req, res) =>{
     }
 })
 
-
+// CREATE NEW ANIMAL TO ADOPT
 AnimalRoutes.post('/animals', async (req, res)=>{
 
     const NewAnimal = new AnimalModel({
@@ -62,15 +63,64 @@ AnimalRoutes.post('/animals', async (req, res)=>{
 
 });
 
+// DELETE ANIMAL USING MATCH NAME && LASTOWNER
+AnimalRoutes.delete('/animals/delete/:name/:last_owner', async (req, res)=>{
+    const animalName = req.params.name;
+    const animalOwner = req.params.last_owner;
 
-// AnimalRoutes.delete('', async (req, res)=>{
+    try {
     
-// });
-
-
-// AnimalRoutes.put('', async (req, res)=>{
+    const deletedAnimal = await AnimalModel.findOneAndRemove({ name: animalName, last_owner: animalOwner });
     
-// });
+    if (!deletedAnimal) {
+        console.log(animalName, animalOwner );
+        return res.status(404).json({ message: 'Animal not found' });
+    }
+    
+    console.log('Successfully deleted a Animal');
+    res.json({ message: 'Animal deleted successfully', deletedAnimal });
+    } catch (error) {
+    console.error('Error deleting Animal:', error);
+    res.status(500).json({ message: 'Delete User Request Failed', error });
+    }
+});
+
+// MANIPULATE DATA OF ANIMAL
+AnimalRoutes.put('/animals/edit/:name', async (req, res)=>{
+    const nameOfAnimal = req.params.name; // GET THE USER INPUT NAME THAT IT WANTS TO EDIT
+
+    const formData = {
+        name: req.body.EditName,
+        breed: req.body.EditBreed,
+        age: req.body.EditAge,
+        location: req.body.EditLocation,
+        last_owner: req.body.EditLast_Owner,
+        new_owner: req.body.EditNew_Owner,
+        isAdopted: req.body.EditisAdopted,
+        animal_type: req.body.EditType,
+        animal_image: req.body.EditImage
+    };
+
+    try {
+
+        const existingData = await AnimalModel.findOne({ name: nameOfAnimal });
+
+        if (!existingData) {
+            return res.status(404).json({ message: 'Animal not found' });
+        }
+
+        const updatedData = {
+            ...existingData.toObject(),
+            ...formData,
+        };
+
+        await AnimalModel.findByIdAndUpdate(existingData._id, updatedData);
+        res.json({ message: 'Animal updated successfully', updatedData, oldData: existingData});
+    } catch (error) {
+        console.error('Error updating Animal:', error);
+        res.status(500).json({ message: 'Update Animal Request Failed', error });
+    }
+});
 
 
 

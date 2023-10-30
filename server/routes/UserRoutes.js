@@ -95,7 +95,7 @@ UserRoute.put('/users/edit/:name', async (req, res) => {
         console.error('Error updating user:', error);
         res.status(500).json({ message: 'Update User Request Failed', error });
     }
-})
+});
 
 
 
